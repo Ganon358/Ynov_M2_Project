@@ -26,12 +26,11 @@ def async_executor(func):
     return wrapper
 
 class DataFrameProcessor(object):
-
-    def __init__(self, file_path: str, category_threshold: int = 10, limit: int = None) -> None:
-        self.file_path = file_path
+    def __init__(self, file_path: str = None, category_threshold: int = 10, df_import : 'pd.DataFrame' = None, limit: int = None) -> None:
+        self.file_path = file_path if file_path is not None else "DataFrame filepath not referenced"
         self.category_threshold = category_threshold
         self.limit = limit
-        self.df = load_data(file_path, limit)
+        self.df = df_import if df_import is not None else load_data(file_path, limit)
 
         self._numeric_columns, self._ordinal_columns, self._nominal_columns = self._classify_columns()
 

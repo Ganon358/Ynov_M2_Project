@@ -9,8 +9,9 @@ from sklearn.ensemble import IsolationForest
 from ..data_utils import load_data, get_numeric_columns
 
 class DataOutlier(object):
-    def __init__(self, df: pd.DataFrame, output_dir: str = "outlier_analysis") -> None:
-        self.df = load_data(df)
+    def __init__(self, file_path : str = "", df: pd.DataFrame = None, output_dir: str = "outlier_analysis") -> None:
+        self.file_path = file_path if file_path is not None else "DataFrame filepath not referenced"
+        self.df = df if df is not None else load_data(file_path, limit)
         self._output_dir = output_dir
 
         os.makedirs(self._output_dir, exist_ok=True)
