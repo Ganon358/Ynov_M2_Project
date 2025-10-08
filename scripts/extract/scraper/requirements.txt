@@ -1,6 +1,0 @@
-beautifulsoup4>=4.12
-requests>=2.32
-pandas>=2.2
-python-dateutil>=2.9
-tqdm>=4.66
-tenacity>=9.0
