@@ -1,0 +1,162 @@
+{
+    "id": 1957050,
+    "image": "https://img.spoonacular.com/recipes/1957050-556x370.jpg",
+    "imageType": "jpg",
+    "title": "White Russian",
+    "readyInMinutes": 45,
+    "servings": 1,
+    "sourceUrl": "https://www.thecocktaildb.com/drink/12528",
+    "vegetarian": true,
+    "vegan": false,
+    "glutenFree": true,
+    "dairyFree": false,
+    "veryHealthy": false,
+    "cheap": false,
+    "veryPopular": false,
+    "sustainable": false,
+    "lowFodmap": false,
+    "weightWatcherSmartPoints": 8,
+    "gaps": "no",
+    "preparationMinutes": null,
+    "cookingMinutes": null,
+    "aggregateLikes": 0,
+    "healthScore": 0.0,
+    "creditsText": "drinkhero",
+    "license": null,
+    "sourceName": "thecocktaildb.com",
+    "pricePerServing": 185.38,
+    "extendedIngredients": [
+        {
+            "id": 14051,
+            "aisle": "Alcoholic Beverages",
+            "image": "vodka.jpg",
+            "consistency": "LIQUID",
+            "name": "vodka",
+            "nameClean": "vodka",
+            "original": "2 oz Vodka",
+            "originalName": "Vodka",
+            "amount": 2.0,
+            "unit": "oz",
+            "meta": [],
+            "measures": {
+                "us": {
+                    "amount": 2.0,
+                    "unitShort": "oz",
+                    "unitLong": "ounces"
+                },
+                "metric": {
+                    "amount": 56.699,
+                    "unitShort": "g",
+                    "unitLong": "grams"
+                }
+            }
+        },
+        {
+            "id": 93716,
+            "aisle": "Alcoholic Beverages",
+            "image": "coffee-liqueur.jpg",
+            "consistency": "SOLID",
+            "name": "coffee liqueur",
+            "nameClean": "coffee liqueur",
+            "original": "1 oz Coffee liqueur",
+            "originalName": "Coffee liqueur",
+            "amount": 1.0,
+            "unit": "oz",
+            "meta": [],
+            "measures": {
+                "us": {
+                    "amount": 1.0,
+                    "unitShort": "oz",
+                    "unitLong": "ounce"
+                },
+                "metric": {
+                    "amount": 28.35,
+                    "unitShort": "g",
+                    "unitLong": "grams"
+                }
+            }
+        },
+        {
+            "id": 1052,
+            "aisle": "Milk, Eggs, Other Dairy",
+            "image": "fluid-cream.jpg",
+            "consistency": "LIQUID",
+            "name": "cream",
+            "nameClean": "cream",
+            "original": "Light cream",
+            "originalName": "Light cream",
+            "amount": 1.0,
+            "unit": "serving",
+            "meta": [
+                "light"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 1.0,
+                    "unitShort": "serving",
+                    "unitLong": "serving"
+                },
+                "metric": {
+                    "amount": 1.0,
+                    "unitShort": "serving",
+                    "unitLong": "serving"
+                }
+            }
+        }
+    ],
+    "description": "The White Russian cocktail is generally characterized by its creamy, rich, and slightly sweet flavor. The vodka provides a neutral, slightly sharp base, while the coffee liqueur adds a robust, deep coffee taste with some sweetness. The cream rounds out the drink, giving it a smooth, velvety texture and a milky aftertaste. If you enjoy creamy and sweet beverages with a hint of coffee, you'll likely find this cocktail appealing. It's not sour or bitter, nor is it fruity or spicy. Instead, it's a comforting and indulgent drink, making it a great choice for a dessert cocktail or a cozy nightcap.",
+    "summary": "Forget going out to eat or ordering takeout every time you crave Eastern European food. Try making White Russian at home. For <b>$1.85 per serving</b>, this recipe <b>covers 0%</b> of your daily requirements of vitamins and minerals. Watching your figure? This gluten free and lacto ovo vegetarian recipe has <b>231 calories</b>, <b>0g of protein</b>, and <b>0g of fat</b> per serving. This recipe serves 1. A mixture of vodka, coffee liqueur, cream, and a handful of other ingredients are all it takes to make this recipe so scrumptious. It is brought to you by spoonacular user <a href=\"/profile/drinkhero\">drinkhero</a>. From preparation to the plate, this recipe takes about <b>about 45 minutes</b>. It works well as a beverage. Try <a href=\"https://spoonacular.com/recipes/black-russian-1956126\">Black Russian</a>, <a href=\"https://spoonacular.com/recipes/17-bean-white-chicken-chili-631843\">17 Bean White Chicken Chili</a>, and <a href=\"https://spoonacular.com/recipes/4th-of-july-raspberry-white-blueberry-farm-to-table-cocktail-from-harvest-spirits-631870\">4th of July RASPBERRY, WHITE & BLUEBERRY FARM TO TABLE Cocktail From Harvest Spirits</a> for similar recipes.",
+    "cuisines": [
+        "Eastern European",
+        "European"
+    ],
+    "dishTypes": [
+        "beverage",
+        "drink"
+    ],
+    "diets": [
+        "gluten free",
+        "lacto ovo vegetarian"
+    ],
+    "occasions": [],
+    "instructions": "Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.",
+    "analyzedInstructions": [
+        {
+            "name": "",
+            "steps": [
+                {
+                    "number": 1,
+                    "step": "Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.",
+                    "ingredients": [
+                        {
+                            "id": 93716,
+                            "name": "coffee liqueur",
+                            "localizedName": "coffee liqueur",
+                            "image": "coffee-liqueur.jpg"
+                        },
+                        {
+                            "id": 1052,
+                            "name": "light cream",
+                            "localizedName": "light cream",
+                            "image": "fluid-cream.jpg"
+                        },
+                        {
+                            "id": 10014412,
+                            "name": "ice cubes",
+                            "localizedName": "ice cubes",
+                            "image": "ice-cubes.png"
+                        },
+                        {
+                            "id": 14051,
+                            "name": "vodka",
+                            "localizedName": "vodka",
+                            "image": "vodka.jpg"
+                        }
+                    ],
+                    "equipment": []
+                }
+            ]
+        }
+    ],
+    "spoonacularScore": 19.658538818359375
+}

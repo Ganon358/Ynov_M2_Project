@@ -250,7 +250,6 @@ class WeightExtractor(metaclass=sealed()):
         match = re.search(pattern, title, flags=re.I)
         return match.group(1).replace(" ", "") if match else None
 
-
 class NutriScoreExtractor(metaclass=sealed(['_soup', '_extraction_strategies'])):
     def __init__(self, soup: BeautifulSoup):
         object.__setattr__(self, '_soup', soup)

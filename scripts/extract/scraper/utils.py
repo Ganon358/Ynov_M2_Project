@@ -6,7 +6,7 @@ from datetime import datetime
 from dateutil import parser as dateparser
 from typing import List, Dict, Any, Optional, Union
 from pathlib import Path
-from core.sealed import sealed
+from .core.sealed import sealed
 
 class TimeManager(metaclass=sealed()):
     @staticmethod
@@ -118,3 +118,17 @@ def slugify(text: Optional[str]) -> str:
 
 def parse_iso_date(date_string: Optional[str]) -> Optional[str]:
     return TimeManager.parse_iso_date(date_string)
+
+def load_env() -> dict:
+    env_path = Path(__file__).parent / '.env'
+    env_vars = {}
+    
+    if env_path.exists():
+        with open(env_path, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and '=' in line:
+                    key, value = line.split('=', 1)
+                    env_vars[key] = value.strip('"').strip("'")
+    
+    return env_vars
