@@ -1,0 +1,15 @@
+# Data
+data/raw/
+data/processed/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Env
+.env
+*.env
+
+# Docker
+*.log

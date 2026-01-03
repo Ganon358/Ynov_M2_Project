@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    container_name: fr_postgres
+    environment:
+      POSTGRES_DB: fil_rouge
+      POSTGRES_USER: filrouge
+      POSTGRES_PASSWORD: filrouge_pwd
+    ports:
+      - "5432:5432"
+    volumes:
+      - fr_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U filrouge -d fil_rouge"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  adminer:
+    image: adminer:4
+    container_name: fr_adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  fr_pgdata:
