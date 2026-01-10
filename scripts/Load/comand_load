@@ -1,0 +1,74 @@
+COMMANDES – MODULE LOAD (PowerShell / Windows) – à lancer depuis la racine du projet
+=======================================================================================
+
+0) Vérifier l’interpréteur Python utilisé (Windows)
+--------------------------------------------------
+py --version
+  -> Affiche la version de Python utilisée via le launcher "py".
+
+py -m scripts.load.run_load --help
+  -> Affiche l’aide et la liste des options disponibles pour run_load.
+
+1) Exemples de LOAD vers fichiers (à partir d’un JSON brut)
+-----------------------------------------------------------
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format json --filename breweries_copy.json --allow-na
+  -> Lit le JSON d’entrée et écrit un JSON dans data/processed (NaN autorisés).
+
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format csv --filename breweries_copy.csv --allow-na
+  -> Lit le JSON d’entrée et écrit un CSV dans data/processed (NaN autorisés).
+
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format parquet --filename breweries_copy.parquet --allow-na
+  -> Lit le JSON d’entrée et écrit un Parquet dans data/processed (NaN autorisés).
+     (Si erreur de dépendance: installer pyarrow, voir section 5)
+
+2) Tests de validation (qualité des données)
+--------------------------------------------
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format csv --filename should_fail.csv
+  -> Test volontaire: échoue si le DataFrame contient des NaN (allow_na=False par défaut).
+
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format csv --filename should_pass.csv --allow-na
+  -> Même test, mais passe car on autorise les NaN via --allow-na.
+
+3) LOAD vers SQL (SQLite) + vérifications
+-----------------------------------------
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format sql --conn sqlite:///data/processed/app.db --table breweries --if-exists replace --allow-na
+  -> Charge les données dans SQLite (fichier data/processed/app.db), table "breweries", en remplaçant la table si elle existe.
+
+py -c "import sqlite3; con=sqlite3.connect('data/processed/app.db'); cur=con.cursor(); print(cur.execute('SELECT COUNT(*) FROM breweries').fetchone()); con.close()"
+  -> Vérifie le nombre de lignes dans la table "breweries".
+
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format sql --conn sqlite:///data/processed/app.db --table breweries --if-exists append --allow-na
+  -> Charge en mode append (ajoute des lignes). Utile pour tester le comportement append.
+
+py -c "import sqlite3; con=sqlite3.connect('data/processed/app.db'); cur=con.cursor(); print(cur.execute('SELECT COUNT(*) FROM breweries').fetchone()); con.close()"
+  -> Re-vérifie le nombre de lignes après append (souvent ~x2 si on recharge le même dataset).
+
+4) Dossier de sortie personnalisé
+---------------------------------
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format json --output-dir data/processed/tests --filename breweries_test.json --allow-na
+  -> Écrit le fichier dans un dossier de sortie custom (data/processed/tests).
+
+dir .\data\processed\tests
+  -> Liste les fichiers créés dans le dossier de sortie custom.
+
+5) Préparation ML (train/test) – optionnel
+------------------------------------------
+py -m scripts.load.run_load --input .\data\raw\all_breweries_20251008_093122.json --format ml --target-col brewery_type --allow-na
+  -> Split train/test et écrit X_train/X_test/y_train/y_test dans data/processed/ml
+     (Remplacer brewery_type par une colonne cible existante dans ton dataset.)
+
+dir .\data\processed\ml
+  -> Liste les fichiers ML générés.
+
+6) Dépendances utiles (si erreur à l’exécution)
+-----------------------------------------------
+py -m pip install pandas sqlalchemy scikit-learn
+  -> Dépendances principales pour load (CSV/SQL/ML).
+
+py -m pip install pyarrow
+  -> Nécessaire pour écrire/lire du Parquet via pandas (souvent requis).
+
+Notes
+-----
+- Toujours lancer ces commandes depuis la racine du projet (là où se trouvent scripts/ et data/).
+- Si ton fichier d’entrée change, adapte simplement le chemin après --input.
